@@ -1,0 +1,186 @@
+/* ============================================================
+   assets/css/my-requests.css
+   Styles for the resident "My Collection Requests" page.
+   ============================================================ */
+
+/* ---------- Page header row ---------- */
+.page-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--tw-space-md);
+    margin-bottom: var(--tw-space-lg);
+}
+
+/* ---------- Filters ---------- */
+.filters {
+    background: var(--tw-white);
+    padding: var(--tw-space-md);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    border: 1px solid var(--tw-border);
+    margin-bottom: var(--tw-space-xl);
+}
+
+.filters__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-sm);
+    align-items: center;
+}
+
+.filters__field { flex: 0 0 auto; min-width: 180px; }
+.filters__field--grow { flex: 1 1 260px; min-width: 200px; }
+
+.filters .form-control,
+.filters .form-select { box-shadow: none; }
+
+/* ---------- Request list ---------- */
+.request-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-md);
+}
+
+.request-card {
+    background: var(--tw-white);
+    border: 1px solid var(--tw-border);
+    border-radius: var(--tw-radius-lg);
+    padding: var(--tw-space-lg);
+    box-shadow: var(--tw-shadow-flat);
+    transition: box-shadow var(--tw-transition);
+}
+.request-card:hover {
+    box-shadow: var(--tw-shadow-raised);
+}
+
+.request-card__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--tw-space-sm);
+    margin-bottom: var(--tw-space-sm);
+}
+
+.request-card__category {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-left: 4px solid var(--tw-secondary);
+    background: var(--tw-secondary-light);
+    color: var(--tw-primary);
+    font-size: var(--tw-text-xs);
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.request-card__description {
+    margin: var(--tw-space-sm) 0 var(--tw-space-md);
+    color: var(--tw-text);
+    font-size: var(--tw-text-base);
+    line-height: 1.5;
+}
+
+.request-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-md);
+    font-size: var(--tw-text-sm);
+    color: var(--tw-text-muted);
+    margin-bottom: var(--tw-space-md);
+}
+
+.request-card__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.request-card__meta-item--muted {
+    margin-left: auto;
+    color: var(--tw-text-light);
+    font-size: var(--tw-text-xs);
+}
+
+.request-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-sm);
+    align-items: center;
+    padding-top: var(--tw-space-sm);
+    border-top: 1px solid var(--tw-border);
+}
+
+.request-card__locked {
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-light);
+    font-style: italic;
+}
+
+/* ---------- Expandable details ---------- */
+.request-card__details {
+    margin-top: var(--tw-space-md);
+    padding-top: var(--tw-space-md);
+    border-top: 1px dashed var(--tw-border);
+}
+.request-card__details.hidden { display: none; }
+
+.details-list {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--tw-space-sm) var(--tw-space-lg);
+}
+
+.details-list__row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--tw-space-sm);
+    font-size: var(--tw-text-sm);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px dashed var(--tw-border);
+}
+
+.details-list__row--full {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: none;
+}
+
+.details-list dt {
+    color: var(--tw-text-muted);
+    font-weight: 500;
+    flex: 0 0 auto;
+}
+
+.details-list dd {
+    margin: 0;
+    color: var(--tw-text);
+    text-align: right;
+    font-weight: 500;
+    word-break: break-word;
+}
+.details-list__row--full dd {
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+    .request-card__meta-item--muted {
+        margin-left: 0;
+        width: 100%;
+    }
+    .request-card__actions .btn {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+    .filters__field { min-width: 100%; }
+    .filters__row button { width: 100%; }
+}

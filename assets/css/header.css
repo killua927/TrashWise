@@ -1,0 +1,135 @@
+/* ============================================================
+   assets/css/header.css
+   Top navigation bar for TrashWise.
+   ============================================================ */
+
+.app-header {
+    position: sticky; top: 0; z-index: 900;
+    background-color: var(--tw-white);
+    border-bottom: 1px solid var(--tw-border);
+    box-shadow: 0 1px 3px rgba(44, 103, 5, 0.06);
+}
+
+.app-header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.app-brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--tw-primary); font-weight: 700; }
+.app-brand:hover { text-decoration: none; color: var(--tw-primary); }
+.app-brand__logo { height: 40px; width: auto; }
+.app-brand__name { font-size: 1.25rem; letter-spacing: -0.01em; }
+
+.app-nav__list { list-style: none; display: flex; align-items: center; gap: 0.25rem; margin: 0; padding: 0; }
+
+.app-nav__link {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--tw-radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--tw-text);
+    background: none; border: none; cursor: pointer;
+    transition: background-color var(--tw-transition), color var(--tw-transition);
+}
+.app-nav__link:hover, .app-nav__link:focus {
+    background-color: var(--tw-secondary-light);
+    color: var(--tw-primary);
+    text-decoration: none;
+}
+.app-nav__link--small { font-size: 0.8rem; }
+.app-nav__link--logout { color: var(--tw-rejected); }
+.app-nav__link--logout:hover { background-color: #fee2e2; color: #991b1b; }
+.app-nav__link--icon { position: relative; font-size: 1.1rem; }
+.app-nav__link--button { background: none; border: none; cursor: pointer; font: inherit; }
+
+.nav-badge {
+    position: absolute; top: 0; right: 0;
+    transform: translate(30%, -30%);
+    background-color: var(--tw-rejected);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.65rem; font-weight: 700;
+    padding: 2px 6px; line-height: 1;
+}
+
+.app-nav__user {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--tw-border);
+    margin-left: 0.5rem;
+}
+.app-nav__user-name { font-size: 0.85rem; font-weight: 600; color: var(--tw-primary); }
+
+/* Admin dropdown */
+.app-nav__dropdown { position: relative; }
+.app-nav__submenu {
+    display: none;
+    position: absolute; top: 100%; left: 0;
+    list-style: none; margin: 0; padding: 0.4rem 0;
+    background: var(--tw-white);
+    border: 1px solid var(--tw-border);
+    border-radius: var(--tw-radius-md);
+    box-shadow: var(--tw-shadow-flat);
+    min-width: 200px;
+    z-index: 1000;
+}
+.app-nav__dropdown.is-open .app-nav__submenu { display: block; }
+.app-nav__submenu a {
+    display: block;
+    padding: 0.55rem 1rem;
+    font-size: 0.875rem;
+    color: var(--tw-text);
+}
+.app-nav__submenu a:hover { background: var(--tw-secondary-light); color: var(--tw-primary); text-decoration: none; }
+
+/* Mobile toggle */
+.nav-toggle {
+    display: none;
+    background: none; border: none;
+    padding: 0.5rem;
+    border-radius: var(--tw-radius-sm);
+}
+.nav-toggle span {
+    display: block;
+    width: 24px; height: 2px;
+    background-color: var(--tw-primary);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: transform var(--tw-transition), opacity var(--tw-transition);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Responsive */
+@media (max-width: 980px) {
+    .nav-toggle { display: block; }
+    .app-nav {
+        position: absolute; top: 100%; left: 0; right: 0;
+        background-color: var(--tw-white);
+        border-bottom: 1px solid var(--tw-border);
+        display: none;
+        padding: 1rem;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+    .app-nav.is-open { display: block; }
+    .app-nav__list { flex-direction: column; align-items: stretch; gap: 0.25rem; }
+    .app-nav__link { padding: 0.75rem 1rem; }
+    .app-nav__user {
+        flex-direction: column; align-items: flex-start;
+        border-left: none; border-top: 1px solid var(--tw-border);
+        padding: 0.75rem 0 0; margin: 0.5rem 0 0;
+    }
+    .app-nav__submenu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-left: 1rem;
+    }
+}

@@ -1,0 +1,44 @@
+/* ============================================================
+   assets/css/footer.css
+   Footer for TrashWise.
+   ============================================================ */
+
+.app-footer {
+    background-color: var(--tw-white);
+    border-top: 1px solid var(--tw-border);
+    padding: 2rem 1rem 1rem;
+    margin-top: 3rem;
+}
+
+.app-footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.app-footer__brand { display: flex; align-items: center; gap: 0.75rem; max-width: 400px; }
+.app-footer__logo { height: 48px; width: auto; }
+.app-footer__brand strong { color: var(--tw-primary); font-size: 1.1rem; }
+.app-footer__brand p { margin: 0.15rem 0 0; font-size: 0.85rem; color: var(--tw-text-muted); }
+
+.app-footer__links { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.9rem; }
+.app-footer__links a { color: var(--tw-text-muted); }
+.app-footer__links a:hover { color: var(--tw-primary); }
+
+.app-footer__copy {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--tw-text-light);
+    margin: 1.5rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--tw-border);
+}
+
+@media (max-width: 600px) {
+    .app-footer__inner { flex-direction: column; align-items: flex-start; }
+}

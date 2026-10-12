@@ -1,0 +1,134 @@
+/* ============================================================
+   assets/css/profile.css
+   Styles for the user profile page.
+   ============================================================ */
+
+.profile__grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: var(--tw-space-xl);
+    align-items: start;
+}
+
+.profile__card {
+    padding: var(--tw-space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-md);
+}
+
+.profile__aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-lg);
+    position: sticky;
+    top: 90px;
+}
+
+/* ---------- Card head ---------- */
+.card-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-bottom: var(--tw-space-sm);
+    border-bottom: 1px solid var(--tw-border);
+}
+
+.card-title {
+    margin: 0;
+    font-size: var(--tw-text-lg);
+    color: var(--tw-primary);
+}
+
+.card-subtitle {
+    margin: 0;
+    font-size: var(--tw-text-sm);
+    color: var(--tw-text-muted);
+}
+
+/* ---------- Read-only email field ---------- */
+.form-control[readonly] {
+    background-color: var(--tw-bg);
+    cursor: default;
+    color: var(--tw-text-muted);
+}
+
+/* ---------- Role pill ---------- */
+.role-pill {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: var(--tw-radius-full);
+    background: var(--tw-primary-light);
+    color: var(--tw-primary);
+    font-size: var(--tw-text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* ---------- Details list ---------- */
+.details-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-sm);
+}
+
+.details-list__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--tw-space-sm);
+    font-size: var(--tw-text-sm);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px dashed var(--tw-border);
+}
+.details-list__row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.details-list dt {
+    color: var(--tw-text-muted);
+    font-weight: 500;
+}
+
+.details-list dd {
+    margin: 0;
+    color: var(--tw-text);
+    font-weight: 500;
+    text-align: right;
+}
+
+/* ---------- Form actions ---------- */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--tw-space-md);
+    margin-top: var(--tw-space-sm);
+    padding-top: var(--tw-space-md);
+    border-top: 1px solid var(--tw-border);
+}
+.form-actions .btn {
+    min-width: 160px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .profile__grid {
+        grid-template-columns: 1fr;
+    }
+    .profile__aside {
+        position: static;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+    .form-actions .btn {
+        width: 100%;
+    }
+}

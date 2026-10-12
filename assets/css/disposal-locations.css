@@ -1,0 +1,259 @@
+/* ============================================================
+   assets/css/disposal-locations.css
+   Styles for the disposal facilities view (list + map).
+   ============================================================ */
+
+/* ---------- Filters ---------- */
+.filters--inline {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: var(--tw-space-lg);
+}
+
+.filters--inline .filters__row {
+    gap: var(--tw-space-sm);
+}
+
+.filters--inline .filters__field {
+    min-width: 240px;
+}
+
+/* ---------- Main layout ---------- */
+.facilities-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: var(--tw-space-lg);
+    align-items: stretch;
+    min-height: 560px;
+}
+
+/* ---------- Sidebar ---------- */
+.facilities-sidebar {
+    background: var(--tw-white);
+    border: 1px solid var(--tw-border);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    padding: var(--tw-space-lg);
+    display: flex;
+    flex-direction: column;
+    max-height: 680px;
+}
+
+.facilities-sidebar__header {
+    padding-bottom: var(--tw-space-md);
+    margin-bottom: var(--tw-space-md);
+    border-bottom: 1px solid var(--tw-border);
+}
+
+.facilities-sidebar__title {
+    margin: 0 0 0.25rem;
+    color: var(--tw-primary);
+    font-size: var(--tw-text-lg);
+}
+
+.facilities-sidebar__hint {
+    margin: 0;
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-muted);
+}
+
+.facility-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-sm);
+}
+
+/* Custom scrollbar for the sidebar */
+.facility-list::-webkit-scrollbar { width: 8px; }
+.facility-list::-webkit-scrollbar-thumb {
+    background: var(--tw-border);
+    border-radius: 4px;
+}
+.facility-list::-webkit-scrollbar-thumb:hover {
+    background: var(--tw-secondary);
+}
+
+/* ---------- Facility item ---------- */
+.facility-item__button {
+    width: 100%;
+    text-align: left;
+    background: var(--tw-surface);
+    border: 1px solid var(--tw-border);
+    border-radius: var(--tw-radius-md);
+    padding: var(--tw-space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    cursor: pointer;
+    font: inherit;
+    transition: border-color var(--tw-transition),
+                box-shadow var(--tw-transition),
+                background-color var(--tw-transition);
+    color: inherit;
+}
+
+.facility-item__button:hover,
+.facility-item__button:focus-visible {
+    border-color: var(--tw-secondary);
+    background: var(--tw-secondary-light);
+    box-shadow: var(--tw-shadow-flat);
+}
+
+.facility-item.is-active .facility-item__button {
+    border-color: var(--tw-primary);
+    background: var(--tw-primary-light);
+    box-shadow: var(--tw-shadow-flat);
+}
+
+.facility-item__button:disabled {
+    cursor: not-allowed;
+    opacity: 0.75;
+    background: var(--tw-bg);
+}
+
+.facility-item__name {
+    font-weight: 700;
+    color: var(--tw-primary);
+    font-size: var(--tw-text-base);
+    line-height: 1.3;
+}
+
+.facility-item__type {
+    font-size: var(--tw-text-xs);
+    font-weight: 600;
+    color: var(--tw-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.facility-item__address,
+.facility-item__barangay,
+.facility-item__categories,
+.facility-item__hours,
+.facility-item__contact {
+    font-size: var(--tw-text-sm);
+    color: var(--tw-text-muted);
+    line-height: 1.4;
+}
+
+.facility-item__barangay {
+    color: var(--tw-text);
+    font-weight: 500;
+}
+
+.facility-item__categories {
+    font-style: italic;
+}
+
+.facility-item__warning {
+    margin-top: 0.2rem;
+    font-size: var(--tw-text-xs);
+    color: var(--tw-pending);
+    font-weight: 600;
+}
+
+/* ---------- Map ---------- */
+.facilities-map-wrapper {
+    position: relative;
+    background: var(--tw-white);
+    border: 1px solid var(--tw-border);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    overflow: hidden;
+    min-height: 560px;
+}
+
+.facilities-map {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+}
+
+.facilities-map__empty {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--tw-space-lg);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--tw-text-muted);
+    font-size: var(--tw-text-sm);
+}
+
+/* ---------- Leaflet popup styling ---------- */
+.leaflet-popup-content {
+    font-family: var(--tw-font);
+    font-size: var(--tw-text-sm);
+    color: var(--tw-text);
+    line-height: 1.5;
+    margin: 8px 12px;
+}
+
+.leaflet-popup-content h3 {
+    margin: 0 0 0.3rem;
+    font-size: var(--tw-text-base);
+    color: var(--tw-primary);
+    line-height: 1.3;
+}
+
+.leaflet-popup-content p {
+    margin: 0.15rem 0;
+    color: var(--tw-text-muted);
+    font-size: var(--tw-text-xs);
+}
+
+.leaflet-popup-content strong {
+    color: var(--tw-text);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    color: var(--tw-text-muted);
+}
+
+/* Custom marker icon styling applied via Leaflet divIcon */
+.tw-marker {
+    background: var(--tw-primary);
+    border: 3px solid var(--tw-white);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    transition: transform var(--tw-transition);
+}
+.tw-marker--active {
+    background: var(--tw-secondary);
+    transform: scale(1.25);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+    .facilities-layout {
+        grid-template-columns: 1fr;
+    }
+    .facilities-sidebar {
+        max-height: 380px;
+    }
+    .facilities-map,
+    .facilities-map-wrapper {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 600px) {
+    .filters--inline .filters__field {
+        min-width: 100%;
+    }
+    .facilities-map,
+    .facilities-map-wrapper {
+        min-height: 340px;
+    }
+}

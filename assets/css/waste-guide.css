@@ -1,0 +1,113 @@
+/* ============================================================
+   assets/css/waste-guide.css
+   Styles for the waste guide list.
+   ============================================================ */
+
+/* ---------- Filters ---------- */
+.filters {
+    background: var(--tw-white);
+    padding: var(--tw-space-md);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    border: 1px solid var(--tw-border);
+    margin-bottom: var(--tw-space-xl);
+}
+
+.filters__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-sm);
+    align-items: center;
+}
+
+.filters__field { flex: 0 0 auto; min-width: 200px; }
+.filters__field--grow { flex: 1 1 280px; min-width: 240px; }
+
+.filters .form-control,
+.filters .form-select { box-shadow: none; }
+
+/* ---------- Guide grid ---------- */
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--tw-space-lg);
+}
+
+.guide-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--tw-white);
+    border: 1px solid var(--tw-border);
+    border-radius: var(--tw-radius-lg);
+    padding: var(--tw-space-lg);
+    box-shadow: var(--tw-shadow-flat);
+    transition: box-shadow var(--tw-transition), transform var(--tw-transition);
+}
+.guide-card:hover {
+    box-shadow: var(--tw-shadow-raised);
+    transform: translateY(-2px);
+}
+
+.guide-card__category {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0.2rem 0.6rem;
+    border-left: 4px solid var(--tw-secondary);
+    background: var(--tw-secondary-light);
+    color: var(--tw-primary);
+    font-size: var(--tw-text-xs);
+    font-weight: 600;
+    border-radius: 4px;
+    margin-bottom: var(--tw-space-sm);
+}
+
+.guide-card__title {
+    margin: 0 0 var(--tw-space-sm);
+    font-size: var(--tw-text-lg);
+    line-height: 1.3;
+}
+.guide-card__title a {
+    color: var(--tw-primary);
+    text-decoration: none;
+}
+.guide-card__title a:hover {
+    text-decoration: underline;
+}
+
+.guide-card__excerpt {
+    margin: 0 0 var(--tw-space-md);
+    color: var(--tw-text-muted);
+    font-size: var(--tw-text-sm);
+    flex: 1 1 auto;
+}
+
+.guide-card__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--tw-space-xs);
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-light);
+    padding-top: var(--tw-space-sm);
+    border-top: 1px solid var(--tw-border);
+    margin-bottom: var(--tw-space-sm);
+}
+
+.guide-card__author {
+    font-weight: 500;
+    color: var(--tw-text-muted);
+}
+
+.guide-card__cta {
+    align-self: flex-start;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .filters__field { min-width: 100%; }
+    .filters__row button { width: 100%; }
+    .guide-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,156 @@
+/* ============================================================
+   assets/css/my-reports.css
+   Styles for the resident "My Reports" page.
+   ============================================================ */
+
+/* ---------- Page header ---------- */
+.page-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--tw-space-md);
+    margin-bottom: var(--tw-space-lg);
+}
+
+/* ---------- Filters ---------- */
+.filters {
+    background: var(--tw-white);
+    padding: var(--tw-space-md);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    border: 1px solid var(--tw-border);
+    margin-bottom: var(--tw-space-xl);
+}
+
+.filters__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-sm);
+    align-items: center;
+}
+
+.filters__field {
+    flex: 0 0 auto;
+    min-width: 180px;
+}
+
+.filters__field--grow {
+    flex: 1 1 260px;
+    min-width: 200px;
+}
+
+.filters .form-control,
+.filters .form-select {
+    box-shadow: none;
+}
+
+/* ---------- Report list ---------- */
+.report-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-md);
+}
+
+.report-card {
+    background: var(--tw-white);
+    border: 1px solid var(--tw-border);
+    border-radius: var(--tw-radius-lg);
+    padding: var(--tw-space-lg);
+    box-shadow: var(--tw-shadow-flat);
+    transition: box-shadow var(--tw-transition), transform var(--tw-transition);
+}
+.report-card:hover {
+    box-shadow: var(--tw-shadow-raised);
+    transform: translateY(-1px);
+}
+
+.report-card__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--tw-space-sm);
+    margin-bottom: var(--tw-space-sm);
+}
+
+.report-card__category {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-left: 4px solid var(--tw-secondary);
+    background: var(--tw-secondary-light);
+    color: var(--tw-primary);
+    font-size: var(--tw-text-xs);
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.report-card__title {
+    margin: var(--tw-space-sm) 0 var(--tw-space-md);
+    font-size: var(--tw-text-lg);
+    line-height: 1.35;
+}
+.report-card__title a {
+    color: var(--tw-primary);
+    text-decoration: none;
+}
+.report-card__title a:hover {
+    text-decoration: underline;
+}
+
+.report-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-md);
+    font-size: var(--tw-text-sm);
+    color: var(--tw-text-muted);
+    margin-bottom: var(--tw-space-md);
+}
+
+.report-card__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.report-card__meta-item--muted {
+    margin-left: auto;
+    color: var(--tw-text-light);
+    font-size: var(--tw-text-xs);
+}
+
+.report-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-sm);
+    align-items: center;
+    padding-top: var(--tw-space-sm);
+    border-top: 1px solid var(--tw-border);
+}
+
+.report-card__locked {
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-light);
+    font-style: italic;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+    .report-card__meta-item--muted {
+        margin-left: 0;
+        width: 100%;
+    }
+    .report-card__actions .btn {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+    .filters__field {
+        min-width: 100%;
+    }
+    .filters__row button {
+        width: 100%;
+    }
+}

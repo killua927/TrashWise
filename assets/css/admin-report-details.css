@@ -1,0 +1,281 @@
+/* ============================================================
+   assets/css/admin-report-details.css
+   Styles for the admin report detail view.
+   ============================================================ */
+
+.page-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--tw-space-md);
+    margin-bottom: var(--tw-space-lg);
+}
+
+.page-header__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-sm);
+}
+
+.report-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-sm);
+    align-items: center;
+    margin-top: var(--tw-space-sm);
+}
+
+.report-meta__category {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-left: 4px solid var(--tw-secondary);
+    background: var(--tw-secondary-light);
+    color: var(--tw-primary);
+    font-size: var(--tw-text-xs);
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.report-meta__item {
+    font-size: var(--tw-text-sm);
+    color: var(--tw-text-muted);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--tw-radius-full);
+    background: var(--tw-bg);
+}
+
+/* ---------- Grid ---------- */
+.admin-report-details__grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--tw-space-xl);
+    align-items: start;
+}
+
+.admin-report-details__main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-lg);
+}
+
+.admin-report-details__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-lg);
+    position: sticky;
+    top: 90px;
+}
+
+.admin-report-details__description {
+    margin: 0;
+    color: var(--tw-text);
+    white-space: pre-wrap;
+}
+
+/* ---------- Photo gallery ---------- */
+.card-title__count {
+    font-weight: 400;
+    color: var(--tw-text-muted);
+    font-size: var(--tw-text-sm);
+    margin-left: 0.3rem;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--tw-space-md);
+}
+
+.photo-gallery__item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--tw-radius-md);
+    overflow: hidden;
+    border: 1px solid var(--tw-border);
+    background: var(--tw-surface);
+    padding: 0;
+    cursor: pointer;
+    transition: transform var(--tw-transition), box-shadow var(--tw-transition);
+}
+.photo-gallery__item:hover,
+.photo-gallery__item:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--tw-shadow-raised);
+}
+
+.photo-gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.timeline__item {
+    position: relative;
+    padding-left: var(--tw-space-lg);
+    padding-bottom: var(--tw-space-md);
+    border-left: 2px solid var(--tw-border);
+    margin-left: 8px;
+}
+.timeline__item:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+}
+
+.timeline__marker {
+    position: absolute;
+    left: -8px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--tw-secondary);
+    border: 3px solid var(--tw-white);
+    box-shadow: 0 0 0 1px var(--tw-border);
+}
+
+.timeline__content { padding-left: var(--tw-space-sm); }
+.timeline__header { margin-bottom: 0.3rem; }
+
+.timeline__transition {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+    font-size: var(--tw-text-sm);
+}
+.timeline__from { color: var(--tw-text-muted); text-decoration: line-through; }
+.timeline__to   { font-weight: 700; color: var(--tw-primary); }
+
+.timeline__remarks {
+    margin: 0.3rem 0;
+    font-size: var(--tw-text-sm);
+    color: var(--tw-text-muted);
+    white-space: pre-wrap;
+}
+
+.timeline__meta {
+    margin: 0.3rem 0 0;
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-light);
+}
+
+/* ---------- Details list ---------- */
+.details-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-sm);
+}
+
+.details-list__row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--tw-space-sm);
+    font-size: var(--tw-text-sm);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px dashed var(--tw-border);
+}
+.details-list__row:last-child { border-bottom: none; padding-bottom: 0; }
+
+.details-list dt {
+    color: var(--tw-text-muted);
+    font-weight: 500;
+    flex: 0 0 auto;
+}
+.details-list dd {
+    margin: 0;
+    color: var(--tw-text);
+    text-align: right;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(15, 25, 10, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--tw-space-lg);
+}
+.lightbox.hidden { display: none; }
+
+.lightbox__img {
+    max-width: 92vw;
+    max-height: 82vh;
+    border-radius: var(--tw-radius-md);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+    background: #111;
+}
+
+.lightbox__close,
+.lightbox__nav {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--tw-transition);
+}
+.lightbox__close { top: 20px; right: 20px; }
+.lightbox__nav--prev { left: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox__nav--next { right: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox__close:hover,
+.lightbox__nav:hover { background: rgba(255, 255, 255, 0.25); }
+
+.lightbox__caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: #fff;
+    font-size: var(--tw-text-sm);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--tw-radius-full);
+    max-width: 80vw;
+    text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .admin-report-details__grid {
+        grid-template-columns: 1fr;
+    }
+    .admin-report-details__sidebar {
+        position: static;
+        order: -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-header__row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    }
+}

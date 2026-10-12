@@ -1,0 +1,38 @@
+/* ============================================================
+   assets/css/edit-user.css
+   Styles for the user create/edit form.
+   ============================================================ */
+
+.edit-user {
+    max-width: 800px;
+}
+
+.edit-user form {
+    background: var(--tw-white);
+    padding: var(--tw-space-xl);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    border: 1px solid var(--tw-border);
+}
+
+.form-control[readonly] {
+    background-color: var(--tw-bg);
+    cursor: default;
+    color: var(--tw-text-muted);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--tw-space-md);
+    margin-top: var(--tw-space-xl);
+    padding-top: var(--tw-space-md);
+    border-top: 1px solid var(--tw-border);
+}
+.form-actions .btn { min-width: 140px; }
+
+@media (max-width: 600px) {
+    .edit-user form { padding: var(--tw-space-lg); }
+    .form-actions { flex-direction: column-reverse; }
+    .form-actions .btn { width: 100%; }
+}

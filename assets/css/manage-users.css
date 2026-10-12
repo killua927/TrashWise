@@ -1,0 +1,94 @@
+/* ============================================================
+   assets/css/manage-users.css
+   Styles for the admin user management table.
+   ============================================================ */
+
+.page-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--tw-space-md);
+    margin-bottom: var(--tw-space-lg);
+}
+
+/* ---------- Filters ---------- */
+.filters {
+    background: var(--tw-white);
+    padding: var(--tw-space-md);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    border: 1px solid var(--tw-border);
+    margin-bottom: var(--tw-space-lg);
+}
+
+.filters__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-sm);
+    align-items: center;
+}
+.filters__field { flex: 0 0 auto; min-width: 160px; }
+.filters__field--grow { flex: 1 1 240px; min-width: 220px; }
+.filters .form-control,
+.filters .form-select { box-shadow: none; }
+
+/* ---------- Table tweaks ---------- */
+.manage-table td { vertical-align: middle; }
+
+.manage-table .cell-name {
+    display: block;
+    font-weight: 600;
+    color: var(--tw-text);
+}
+
+.manage-table .cell-sub {
+    display: block;
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-light);
+    margin-top: 2px;
+}
+
+.manage-table .cell-hint {
+    display: inline-block;
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-muted);
+    font-style: italic;
+    margin-left: 0.4rem;
+}
+
+.manage-table tr.is-inactive td {
+    background: #fafbf8;
+    opacity: 0.85;
+}
+
+/* Role pill */
+.role-pill {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: var(--tw-radius-full);
+    background: var(--tw-primary-light);
+    color: var(--tw-primary);
+    font-size: var(--tw-text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.role-pill--admin    { background: #dbeafe; color: #1e40af; }
+.role-pill--staff    { background: #fef3c7; color: #92400e; }
+.role-pill--resident { background: var(--tw-secondary-light); color: var(--tw-primary); }
+
+/* Inline forms inside table cells */
+.inline-form {
+    display: inline;
+    margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .filters__field { min-width: 100%; }
+    .filters__row button { width: 100%; }
+    .manage-table { font-size: var(--tw-text-xs); }
+    .manage-table th,
+    .manage-table td { padding: 0.5rem 0.6rem; }
+}

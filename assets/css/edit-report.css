@@ -1,0 +1,229 @@
+/* ============================================================
+   assets/css/edit-report.css
+   Styles for the report edit form.
+   ============================================================ */
+
+.edit-report-form {
+    max-width: 900px;
+}
+
+.edit-report-form form {
+    background: var(--tw-white);
+    padding: var(--tw-space-xl);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    border: 1px solid var(--tw-border);
+}
+
+/* ---------- Existing photo grid ---------- */
+.photo-fieldset {
+    border: none;
+    margin: var(--tw-space-lg) 0;
+    padding: 0;
+}
+.photo-fieldset legend {
+    padding: 0;
+    margin-bottom: var(--tw-space-sm);
+}
+
+.form-hint--inline {
+    display: inline;
+    margin-left: var(--tw-space-sm);
+    font-weight: 400;
+    color: var(--tw-text-muted);
+}
+
+.existing-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--tw-space-md);
+    margin-bottom: var(--tw-space-md);
+}
+
+.existing-photo {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    border-radius: var(--tw-radius-md);
+    overflow: hidden;
+    border: 2px solid var(--tw-border);
+    aspect-ratio: 1 / 1;
+    transition: border-color var(--tw-transition), opacity var(--tw-transition);
+}
+
+.existing-photo:hover {
+    border-color: var(--tw-secondary);
+}
+
+.existing-photo__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity var(--tw-transition);
+}
+
+.existing-photo__checkbox {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+    accent-color: var(--tw-rejected);
+    cursor: pointer;
+}
+
+.existing-photo__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(220, 38, 38, 0.85);
+    color: #fff;
+    font-weight: 700;
+    font-size: var(--tw-text-base);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--tw-transition);
+    z-index: 1;
+}
+
+.existing-photo__checkbox:checked ~ .existing-photo__overlay {
+    opacity: 1;
+}
+
+.existing-photo__checkbox:checked ~ .existing-photo__img {
+    opacity: 0.35;
+}
+
+/* ---------- New photo upload ---------- */
+.photo-upload {
+    position: relative;
+}
+
+.photo-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.photo-dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--tw-space-sm);
+    padding: var(--tw-space-lg);
+    border: 2px dashed var(--tw-border);
+    border-radius: var(--tw-radius-lg);
+    background-color: var(--tw-secondary-light);
+    cursor: pointer;
+    text-align: center;
+    transition: border-color var(--tw-transition), background-color var(--tw-transition);
+}
+.photo-dropzone:hover,
+.photo-dropzone:focus-within {
+    border-color: var(--tw-secondary);
+    background-color: #eaf3e3;
+}
+
+.photo-dropzone__icon { font-size: 1.8rem; line-height: 1; }
+.photo-dropzone__title { font-weight: 600; color: var(--tw-primary); }
+.photo-dropzone__hint { color: var(--tw-text-muted); font-size: var(--tw-text-xs); }
+
+/* ---------- New photo preview ---------- */
+.photo-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--tw-space-md);
+    margin-top: var(--tw-space-md);
+}
+.photo-preview:empty { display: none; }
+
+.photo-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--tw-radius-md);
+    overflow: hidden;
+    border: 1px solid var(--tw-border);
+    background: var(--tw-surface);
+    box-shadow: var(--tw-shadow-flat);
+}
+
+.photo-item__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-item__remove {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.photo-item__remove:hover { background: var(--tw-rejected); }
+
+.photo-item__name {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 4px 8px;
+    font-size: var(--tw-text-xs);
+    color: #fff;
+    background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.7));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ---------- Photo summary ---------- */
+.photo-summary {
+    margin: var(--tw-space-sm) 0 0;
+    font-size: var(--tw-text-sm);
+    color: var(--tw-text-muted);
+}
+.photo-summary.is-error {
+    color: var(--tw-rejected);
+    font-weight: 600;
+}
+
+/* ---------- Actions ---------- */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--tw-space-md);
+    margin-top: var(--tw-space-xl);
+    padding-top: var(--tw-space-md);
+    border-top: 1px solid var(--tw-border);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .edit-report-form form { padding: var(--tw-space-lg); }
+    .form-actions { flex-direction: column-reverse; }
+    .form-actions .btn { width: 100%; }
+    .existing-photos { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+    .photo-preview { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+}

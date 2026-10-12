@@ -1,0 +1,31 @@
+/* ============================================================
+   assets/css/request-collection.css
+   Styles for the collection request submission form.
+   ============================================================ */
+
+.request-form {
+    max-width: 900px;
+}
+
+.request-form form {
+    background: var(--tw-white);
+    padding: var(--tw-space-xl);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    border: 1px solid var(--tw-border);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--tw-space-md);
+    margin-top: var(--tw-space-xl);
+    padding-top: var(--tw-space-md);
+    border-top: 1px solid var(--tw-border);
+}
+
+@media (max-width: 600px) {
+    .request-form form { padding: var(--tw-space-lg); }
+    .form-actions { flex-direction: column-reverse; }
+    .form-actions .btn { width: 100%; }
+}

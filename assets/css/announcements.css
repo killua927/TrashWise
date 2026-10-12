@@ -1,0 +1,79 @@
+/* ============================================================
+   assets/css/announcements.css
+   Styles for the public announcement list.
+   ============================================================ */
+
+.announcement-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-lg);
+}
+
+.announcement-item {
+    padding: var(--tw-space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-md);
+    box-shadow: var(--tw-shadow-flat);
+}
+
+.announcement-item__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-xs);
+    padding-bottom: var(--tw-space-sm);
+    border-bottom: 1px solid var(--tw-border);
+}
+
+.announcement-item__title {
+    margin: 0;
+    font-size: var(--tw-text-xl);
+    color: var(--tw-primary);
+    line-height: 1.3;
+}
+
+.announcement-item__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-md);
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-muted);
+}
+
+.announcement-item__scope,
+.announcement-item__expires {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.announcement-item__scope {
+    color: var(--tw-secondary);
+    font-weight: 600;
+}
+
+.announcement-item__content {
+    color: var(--tw-text);
+    line-height: 1.7;
+    font-size: var(--tw-text-base);
+    white-space: pre-wrap;
+}
+
+.announcement-item__footer {
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-light);
+    padding-top: var(--tw-space-sm);
+    border-top: 1px dashed var(--tw-border);
+}
+
+@media (max-width: 700px) {
+    .announcement-item {
+        padding: var(--tw-space-md);
+    }
+    .announcement-item__title {
+        font-size: var(--tw-text-lg);
+    }
+}

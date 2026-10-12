@@ -1,0 +1,94 @@
+/* ============================================================
+   assets/css/admin-dashboard.css
+   Styles for the admin dashboard.
+   ============================================================ */
+
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-xl);
+}
+
+/* ---------- Header ---------- */
+.admin-dashboard__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--tw-space-md);
+}
+
+.admin-dashboard__header h1 {
+    margin: var(--tw-space-xs) 0 var(--tw-space-xs);
+    font-size: var(--tw-text-2xl);
+    color: var(--tw-primary);
+}
+
+.admin-dashboard__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-sm);
+}
+
+/* ---------- Stat cards ---------- */
+.admin-dashboard__stats .stat-card {
+    padding: var(--tw-space-lg);
+}
+
+.stat-card__hint {
+    display: block;
+    margin-top: var(--tw-space-xs);
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-muted);
+}
+
+.stat-card--muted .stat-card__value {
+    font-size: var(--tw-text-2xl);
+    color: var(--tw-text);
+}
+
+/* ---------- Charts ---------- */
+.admin-dashboard__charts .chart-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-md);
+}
+
+.panel__hint {
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-muted);
+    font-weight: 500;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 260px;
+}
+
+.chart-container canvas {
+    max-height: 100%;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .admin-dashboard__header {
+        flex-direction: column;
+    }
+    .admin-dashboard__actions {
+        width: 100%;
+    }
+    .admin-dashboard__actions .btn {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+    .chart-container {
+        height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .chart-container {
+        height: 200px;
+    }
+}

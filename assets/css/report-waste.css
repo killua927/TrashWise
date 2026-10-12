@@ -1,0 +1,220 @@
+/* ============================================================
+   assets/css/report-waste.css
+   Styles for the waste report submission form.
+   ============================================================ */
+
+/* ---------- Page header ---------- */
+.page-header {
+    margin-bottom: var(--tw-space-xl);
+}
+
+.page-title {
+    margin: var(--tw-space-sm) 0 var(--tw-space-xs);
+    color: var(--tw-primary);
+    font-size: var(--tw-text-3xl);
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-xs);
+    font-size: var(--tw-text-sm);
+    color: var(--tw-text-muted);
+    margin-bottom: var(--tw-space-sm);
+}
+.breadcrumb a {
+    color: var(--tw-secondary);
+    font-weight: 500;
+}
+.breadcrumb a:hover {
+    color: var(--tw-primary);
+    text-decoration: none;
+}
+.breadcrumb [aria-hidden="true"] {
+    color: var(--tw-text-light);
+}
+
+/* ---------- Form container ---------- */
+.report-form {
+    max-width: 900px;
+}
+
+.report-form form {
+    background: var(--tw-white);
+    padding: var(--tw-space-xl);
+    border-radius: var(--tw-radius-lg);
+    box-shadow: var(--tw-shadow-flat);
+    border: 1px solid var(--tw-border);
+}
+
+/* ---------- Photo upload ---------- */
+.photo-fieldset {
+    border: none;
+    margin: var(--tw-space-lg) 0;
+    padding: 0;
+}
+
+.photo-fieldset legend {
+    padding: 0;
+    margin-bottom: var(--tw-space-sm);
+}
+
+.form-hint--inline {
+    display: inline;
+    margin-left: var(--tw-space-sm);
+    font-weight: 400;
+    color: var(--tw-text-muted);
+}
+
+.photo-upload {
+    position: relative;
+}
+
+.photo-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.photo-dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--tw-space-sm);
+    padding: var(--tw-space-xl);
+    border: 2px dashed var(--tw-border);
+    border-radius: var(--tw-radius-lg);
+    background-color: var(--tw-secondary-light);
+    cursor: pointer;
+    transition: border-color var(--tw-transition), background-color var(--tw-transition);
+    text-align: center;
+}
+.photo-dropzone:hover,
+.photo-dropzone:focus-within {
+    border-color: var(--tw-secondary);
+    background-color: #eaf3e3;
+}
+
+.photo-dropzone__icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.photo-dropzone__title {
+    font-weight: 600;
+    color: var(--tw-primary);
+    font-size: var(--tw-text-base);
+}
+
+.photo-dropzone__hint {
+    color: var(--tw-text-muted);
+    font-size: var(--tw-text-xs);
+}
+
+/* ---------- Photo preview ---------- */
+.photo-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--tw-space-md);
+    margin-top: var(--tw-space-md);
+}
+
+.photo-preview:empty {
+    display: none;
+}
+
+.photo-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--tw-radius-md);
+    overflow: hidden;
+    border: 1px solid var(--tw-border);
+    background: var(--tw-surface);
+    box-shadow: var(--tw-shadow-flat);
+}
+
+.photo-item__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-item__remove {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.photo-item__remove:hover {
+    background: var(--tw-rejected);
+}
+
+.photo-item__name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 4px 8px;
+    font-size: var(--tw-text-xs);
+    color: #fff;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.photo-counter {
+    margin-top: var(--tw-space-sm);
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-muted);
+}
+.photo-counter--error {
+    color: var(--tw-rejected);
+    font-weight: 600;
+}
+
+/* ---------- Actions ---------- */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--tw-space-md);
+    margin-top: var(--tw-space-xl);
+    padding-top: var(--tw-space-md);
+    border-top: 1px solid var(--tw-border);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .report-form form {
+        padding: var(--tw-space-lg);
+    }
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+    .form-actions .btn {
+        width: 100%;
+    }
+    .photo-preview {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    }
+}

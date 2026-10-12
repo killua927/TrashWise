@@ -1,0 +1,127 @@
+/* ============================================================
+   assets/css/view-guide.css
+   Styles for the waste guide detail view.
+   ============================================================ */
+
+.guide-view__grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--tw-space-xl);
+    align-items: start;
+}
+
+/* ---------- Main article ---------- */
+.guide-view__main {
+    padding: var(--tw-space-xl);
+}
+
+.guide-view__category {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    border-left: 4px solid var(--tw-secondary);
+    background: var(--tw-secondary-light);
+    color: var(--tw-primary);
+    font-size: var(--tw-text-xs);
+    font-weight: 600;
+    border-radius: 4px;
+    margin-bottom: var(--tw-space-md);
+}
+
+.guide-view__title {
+    margin: 0 0 var(--tw-space-sm);
+    color: var(--tw-primary);
+    font-size: var(--tw-text-3xl);
+    line-height: 1.2;
+}
+
+.guide-view__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tw-space-xs);
+    align-items: center;
+    color: var(--tw-text-muted);
+    font-size: var(--tw-text-sm);
+    margin-bottom: var(--tw-space-lg);
+    padding-bottom: var(--tw-space-md);
+    border-bottom: 1px solid var(--tw-border);
+}
+.guide-view__meta strong {
+    color: var(--tw-text);
+}
+
+.guide-view__content {
+    font-size: var(--tw-text-base);
+    color: var(--tw-text);
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+.guide-view__footer {
+    margin-top: var(--tw-space-xl);
+    padding-top: var(--tw-space-md);
+    border-top: 1px solid var(--tw-border);
+}
+
+/* ---------- Sidebar ---------- */
+.guide-view__sidebar .card-title {
+    font-size: var(--tw-text-lg);
+    margin-bottom: var(--tw-space-md);
+}
+
+.related-guides {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--tw-space-sm);
+}
+
+.related-guides__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-bottom: var(--tw-space-sm);
+    border-bottom: 1px dashed var(--tw-border);
+}
+.related-guides__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.related-guides__item a {
+    color: var(--tw-text);
+    font-weight: 500;
+    font-size: var(--tw-text-sm);
+}
+.related-guides__item a:hover {
+    color: var(--tw-primary);
+    text-decoration: underline;
+}
+
+.related-guides__date {
+    font-size: var(--tw-text-xs);
+    color: var(--tw-text-light);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .guide-view__grid {
+        grid-template-columns: 1fr;
+    }
+    .guide-view__sidebar {
+        order: -1;
+    }
+}
+
+/* Reading progress bar (appended) */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--tw-secondary), var(--tw-primary));
+    z-index: 1001;
+    transition: width 80ms linear;
+}

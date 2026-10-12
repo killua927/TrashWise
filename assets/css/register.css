@@ -1,0 +1,21 @@
+/* ============================================================
+   assets/css/register.css
+   Registration page styles.
+   ============================================================ */
+
+.auth { padding: var(--tw-space-2xl) 0; background: linear-gradient(180deg, var(--tw-secondary-light), var(--tw-bg)); }
+.auth__inner { display: grid; grid-template-columns: 1fr 340px; gap: var(--tw-space-2xl); align-items: start; }
+
+.auth__card { max-width: 620px; width: 100%; }
+.auth__title { margin: 0 0 var(--tw-space-xs); color: var(--tw-primary); }
+.auth__subtitle { margin: 0 0 var(--tw-space-lg); color: var(--tw-text-muted); }
+.auth__submit { width: 100%; margin-top: var(--tw-space-sm); }
+.auth__footer { text-align: center; font-size: var(--tw-text-sm); margin: var(--tw-space-lg) 0 0; color: var(--tw-text-muted); }
+
+.auth__aside-card h3 { margin-top: 0; color: var(--tw-primary); }
+.auth__aside-text { color: var(--tw-text-muted); font-size: var(--tw-text-sm); margin: 0; }
+
+@media (max-width: 900px) {
+    .auth__inner { grid-template-columns: 1fr; }
+    .auth__aside { display: none; }
+}
